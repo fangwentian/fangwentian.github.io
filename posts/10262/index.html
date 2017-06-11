@@ -6,13 +6,13 @@
   
   <title>Vuex源码分析 | fangwentian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。 源码分析入口文件入口文件src/index.js:123456789101112import &amp;#123; Store, install &amp;#125; from &apos;./store&apos;import &amp;#123; mapState, mapMutations, mapGet">
+  <meta name="description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。">
 <meta name="keywords" content="vue,vuex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vuex源码分析">
 <meta property="og:url" content="http://fangwentian.cn/posts/10262/index.html">
 <meta property="og:site_name" content="fangwentian&#39;s blog">
-<meta property="og:description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。 源码分析入口文件入口文件src/index.js:123456789101112import &amp;#123; Store, install &amp;#125; from &apos;./store&apos;import &amp;#123; mapState, mapMutations, mapGet">
+<meta property="og:description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。">
 <meta property="og:image" content="http://haitao.nos.netease.com/2393d861bc7249169c83b59e2a441779.png">
 <meta property="og:image" content="http://haitao.nos.netease.com/514ce1b831314a268dae031d987b42bc.png">
 <meta property="og:image" content="http://haitao.nos.netease.com/57f62e3975e34f679fdf2c4730c3197f.png">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="http://haitao.nos.netease.com/1192cba48d974c1d975f91e91a99d8f4.png">
 <meta property="og:image" content="http://haitao.nos.netease.com/0ebaa5858ea5409ca3e98b414cc2a655.png">
 <meta property="og:image" content="http://haitao.nos.netease.com/4b7824f97a1c4b23a0417794be851a59.png">
-<meta property="og:updated_time" content="2017-06-11T08:55:54.173Z">
+<meta property="og:updated_time" content="2017-06-11T12:11:38.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex源码分析">
-<meta name="twitter:description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。 源码分析入口文件入口文件src/index.js:123456789101112import &amp;#123; Store, install &amp;#125; from &apos;./store&apos;import &amp;#123; mapState, mapMutations, mapGet">
+<meta name="twitter:description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。">
 <meta name="twitter:image" content="http://haitao.nos.netease.com/2393d861bc7249169c83b59e2a441779.png">
   
   
@@ -105,7 +105,7 @@
 <p>本文解读的Vuex版本为2.3.1</p>
 </blockquote>
 <h4 id="Vuex代码结构"><a href="#Vuex代码结构" class="headerlink" title="Vuex代码结构"></a>Vuex代码结构</h4><p><img src="http://haitao.nos.netease.com/2393d861bc7249169c83b59e2a441779.png" alt=""></p>
-<p>Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。</p>
+<p>Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。<br><a id="more"></a></p>
 <h4 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4><h5 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h5><p>入口文件src/index.js:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Store, install &#125; <span class="keyword">from</span> <span class="string">'./store'</span></div><div class="line"><span class="keyword">import</span> &#123; mapState, mapMutations, mapGetters, mapActions &#125; <span class="keyword">from</span> <span class="string">'./helpers'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  Store,</div><div class="line">  install,</div><div class="line">  <span class="attr">version</span>: <span class="string">'__VERSION__'</span>,</div><div class="line">  mapState,</div><div class="line">  mapMutations,</div><div class="line">  mapGetters,</div><div class="line">  mapActions</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这是Vuex对外暴露的API，其中核心部分是Store，然后是install，它是一个vue插件所必须的方法。Store<br>和install都在store.js文件中。mapState、mapMutations、mapGetters、mapActions为四个辅助函数，用来将store中的相关属性映射到组件中。</p>
 <h5 id="install方法"><a href="#install方法" class="headerlink" title="install方法"></a>install方法</h5><p>Vuejs的插件都应该有一个install方法。先看下我们通常使用Vuex的姿势：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></div><div class="line">...</div><div class="line">Vue.use(Vuex)</div></pre></td></tr></table></figure></p>
@@ -184,7 +184,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fangwentian.cn/posts/10262/" data-id="cj3skye2q0001ewv56tab39f2" class="article-share-link" data-share="baidu" data-title="Vuex源码分析">分享到</a>
+        <a data-url="http://fangwentian.cn/posts/10262/" data-id="cj3sob5nw0001ckv54ogpzb8n" class="article-share-link" data-share="baidu" data-title="Vuex源码分析">分享到</a>
       
 
       

@@ -4,14 +4,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>fangwentian&#39;s blog</title>
+  <title>Vuex源码分析 | fangwentian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="fangwentian&#39;s blog">
-<meta property="og:url" content="http://fangwentian.cn/index.html">
+  <meta name="description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。 源码分析入口文件入口文件src/index.js:123456789101112import &amp;#123; Store, install &amp;#125; from &apos;./store&apos;import &amp;#123; mapState, mapMutations, mapGet">
+<meta name="keywords" content="vue,vuex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vuex源码分析">
+<meta property="og:url" content="http://fangwentian.cn/posts/10262/index.html">
 <meta property="og:site_name" content="fangwentian&#39;s blog">
+<meta property="og:description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。 源码分析入口文件入口文件src/index.js:123456789101112import &amp;#123; Store, install &amp;#125; from &apos;./store&apos;import &amp;#123; mapState, mapMutations, mapGet">
+<meta property="og:image" content="http://haitao.nos.netease.com/2393d861bc7249169c83b59e2a441779.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/514ce1b831314a268dae031d987b42bc.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/57f62e3975e34f679fdf2c4730c3197f.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/6e138337b1a14b3fbbf39f24391b4570.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/e2c9cf87df4b411dad45393fc3fa3ece.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/1192cba48d974c1d975f91e91a99d8f4.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/0ebaa5858ea5409ca3e98b414cc2a655.png">
+<meta property="og:image" content="http://haitao.nos.netease.com/4b7824f97a1c4b23a0417794be851a59.png">
+<meta property="og:updated_time" content="2017-06-11T08:55:54.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fangwentian&#39;s blog">
+<meta name="twitter:title" content="Vuex源码分析">
+<meta name="twitter:description" content="本文解读的Vuex版本为2.3.1  Vuex代码结构 Vuex的代码并不多，但麻雀虽小，五脏俱全，下面来看一下其中的实现细节。 源码分析入口文件入口文件src/index.js:123456789101112import &amp;#123; Store, install &amp;#125; from &apos;./store&apos;import &amp;#123; mapState, mapMutations, mapGet">
+<meta name="twitter:image" content="http://haitao.nos.netease.com/2393d861bc7249169c83b59e2a441779.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -61,9 +75,7 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-    <article id="post-vue/Vuex源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-vue/Vuex源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/posts/10262/" class="article-date">
   <time datetime="2017-06-11T08:50:02.000Z" itemprop="datePublished">2017-06-11</time>
@@ -80,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/10262/">Vuex源码分析</a>
+    <h1 class="article-title" itemprop="name">
+      Vuex源码分析
     </h1>
   
 
@@ -183,160 +195,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-nodejs/nodejs 常用小工具介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/posts/62753/" class="article-date">
-  <time datetime="2017-06-10T16:00:00.000Z" itemprop="datePublished">2017-06-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/nodejs/">nodejs</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/62753/">nodejs常用小工具介绍</a>
-    </h1>
+    <a href="/posts/62753/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">nodejs常用小工具介绍</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了在node开发中非常高频率使用的几个小工具。</p>
-<ul>
-<li>config</li>
-<li>chalk</li>
-<li>opn</li>
-<li>fs-extra</li>
-<li>path</li>
-</ul>
-<h4 id="config"><a href="#config" class="headerlink" title="config"></a>config</h4><p>&emsp;&emsp;在使用 Node.js 编写一个完整的项目时，程序中往往需要用到一些可配置的变量。</p>
-<p>&emsp;&emsp;config模块是 NPM 上下载量最高的 Node.js 配置文件管理模块。它通过环境变量NODE_CONFIG_DIR来指定配置文件所在的目录，默认为./config（即当前运行目录下的config目录），通过环境变量NODE_ENV来指定当前的运行环境版本。</p>
-<p>配置文件的后缀可以是.yml, .yaml, .xml, .coffee, .cson, .properties, .json, .json5, .hjson 或 .js, 通常用json  </p>
-<p>&emsp;&emsp;模块加载后，会首先载入默认的配置文件${NODE_CONFIG_DIR}/default.json，再载入文件${NODE_CONFIG_DIR}/${NODE_ENV}.json，如果配置项有冲突则覆盖默认的配置（arrays are merged by replacement）。</p>
-<p>&emsp;&emsp;默认的NODE_ENV是development</p>
-<p>&emsp;&emsp;例如在config文件夹下，有三个文件，分别是config.json, development.json, production.json</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">- default.json: </div><div class="line">&#123;</div><div class="line">    &quot;Customer&quot;: &#123;</div><div class="line">        &quot;dbConfig&quot;: &#123;</div><div class="line">            &quot;host&quot;: &quot;localhost&quot;,</div><div class="line">            &quot;port&quot;: 5984,</div><div class="line">            &quot;dbName&quot;: &quot;customers&quot;</div><div class="line">        &#125;,</div><div class="line">        &quot;credit&quot;: &#123;</div><div class="line">            &quot;initialLimit&quot;: 100,</div><div class="line">            &quot;initialDays&quot;: 1</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- development.json</div><div class="line">&#123;</div><div class="line">    &quot;Customer&quot;: &#123;</div><div class="line">        &quot;dbConfig&quot;: &#123;</div><div class="line">            &quot;host&quot;: &quot;prod-db-server&quot;</div><div class="line">        &#125;,</div><div class="line">        &quot;credit&quot;: &#123;</div><div class="line">            &quot;initialDays&quot;: 30</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- production.json</div><div class="line">&#123;</div><div class="line">    &quot;Customer&quot;: &#123;</div><div class="line">        &quot;credit&quot;: &#123;</div><div class="line">            &quot;initialDays&quot;: 60</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>再新建app.js：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const CONFIG = require(&apos;config&apos;);</div><div class="line"></div><div class="line">console.log(CONFIG.get(&apos;Customer.credit.initialDays&apos;))</div></pre></td></tr></table></figure></p>
-<p><strong>输出结果为：30</strong></p>
-<p>环境中如果没有设置NODE_ENV, 那么默认的会使用development， 因此development.json中的数据会覆盖default.json</p>
-<p>如果运行：export NODE_ENV=production &amp;&amp; node app.js  </p>
-<p><strong>则输出结果为：60</strong></p>
-<p>载入config模块后，其返回的对象实际上就是当前的配置信息，同时提供了两个方法get()和has()来操作配置项。比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const config = require(&apos;config&apos;);</div><div class="line">console.log(config);</div><div class="line">console.log(config.get(&apos;Customer&apos;));</div><div class="line">console.log(config.get(&apos;Customer.dbConfig&apos;));</div><div class="line">console.log(config.has(&apos;Customer.dbConfig.host&apos;));</div><div class="line">console.log(config.has(&apos;Customer.dbConfig.host2&apos;));</div></pre></td></tr></table></figure>
-<p>其中get()用来获取指定配置，可以使用诸如Customer.dbConfig这样的格式，如果配置项不存在则会抛出异常。has()用来检测指定配置项是否存在，如果存在则返回true。</p>
-<h4 id="chalk"><a href="#chalk" class="headerlink" title="chalk"></a>chalk</h4><p>chalk对应中文粉笔，它希望做到的是彩色粉笔。</p>
-<center><br><img src="http://haitao.nos.netease.com/205a32ca1c034d73a8df95c53c0bf0e5.png" alt=""><br></center>
-
-<p>chalk是一个让开发者能在控制台输出彩色信息的小工具，如果你之前用过color.js，那么可以认为chalk是color.js的替代者。</p>
-<p>chalk的语法很简单，如下官方的示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">const chalk = require(&apos;chalk&apos;);</div><div class="line">const log = console.log;</div><div class="line"></div><div class="line">// combine styled and normal strings</div><div class="line">log(chalk.blue(&apos;Hello&apos;) + &apos;World&apos; + chalk.red(&apos;!&apos;));</div><div class="line"></div><div class="line">// compose multiple styles using the chainable API</div><div class="line">log(chalk.blue.bgRed.bold(&apos;Hello world!&apos;));</div><div class="line"></div><div class="line">// pass in multiple arguments</div><div class="line">log(chalk.blue(&apos;Hello&apos;, &apos;World!&apos;, &apos;Foo&apos;, &apos;bar&apos;, &apos;biz&apos;, &apos;baz&apos;));</div><div class="line"></div><div class="line">// nest styles</div><div class="line">log(chalk.red(&apos;Hello&apos;, chalk.underline.bgBlue(&apos;world&apos;) + &apos;!&apos;));</div><div class="line"></div><div class="line">// nest styles of the same type even (color, underline, background)</div><div class="line">log(chalk.green(</div><div class="line">    &apos;I am a green line &apos; +</div><div class="line">    chalk.blue.underline.bold(&apos;with a blue substring&apos;) +</div><div class="line">    &apos; that becomes green again!&apos;</div><div class="line">));</div><div class="line"></div><div class="line">// ES2015 template literal</div><div class="line">log(`</div><div class="line">CPU: $&#123;chalk.red(&apos;90%&apos;)&#125;</div><div class="line">RAM: $&#123;chalk.green(&apos;40%&apos;)&#125;</div><div class="line">DISK: $&#123;chalk.yellow(&apos;70%&apos;)&#125;</div><div class="line">`);</div></pre></td></tr></table></figure>
-<p>输出结果如下：</p>
-<p><img src="http://haitao.nos.netease.com/be37b6f7cfda45649f111f603c1b654d.png" alt=""></p>
-<h4 id="opn"><a href="#opn" class="headerlink" title="opn"></a>opn</h4><p>opn是一个跨平台的，用node打开<strong>文件，url或者可执行文件</strong>的工具。</p>
-<p>在开发模式下，node server启来之后，直接打开浏览器的127.0.0.1，是不是很方便的一个功能呢。</p>
-<p>opn的用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const opn = require(&apos;opn&apos;);</div><div class="line"></div><div class="line">// Opens the image in the default image viewer</div><div class="line">opn(&apos;chalk.png&apos;).then(() =&gt; &#123;</div><div class="line">    console.log(&apos;open image success&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// Opens the url in the default browser</div><div class="line">opn(&apos;http://kaola.com&apos;);</div><div class="line"></div><div class="line">// Specify the app to open in</div><div class="line">opn(&apos;http://kaola.com&apos;, &#123;app: &apos;firefox&apos;&#125;);</div></pre></td></tr></table></figure>
-<p>这样就分别打开了当前路径下的chalk.png文件，用默认的浏览器打开一个url，和指定浏览器打开url</p>
-<h4 id="fs-extra"><a href="#fs-extra" class="headerlink" title="fs-extra"></a>fs-extra</h4><p>fs-extra是系统fs模块的扩展，提供了更多便利的API。所有原生fs里的方法都没有改动的移植到了fs-extra。</p>
-<p>所以，我们不需要再引入fs模块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs&apos;) // this is no longer necessary</div></pre></td></tr></table></figure></p>
-<p>这样就可以了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>fs-extra提供的API都分为sync（同步）和async（异步）。大多数的方法默认是异步的。</p>
-</blockquote>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">fs.copy(&apos;/tmp/myfile&apos;, &apos;/tmp/mynewfile&apos;, err =&gt; &#123;</div><div class="line">  if (err) return console.error(err)</div><div class="line">  console.log(&quot;success!&quot;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">try &#123;</div><div class="line">  fs.copySync(&apos;/tmp/myfile&apos;, &apos;/tmp/mynewfile&apos;)</div><div class="line">  console.log(&quot;success!&quot;)</div><div class="line">&#125; catch (err) &#123;</div><div class="line">  console.error(err)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>部分fs-extra API介绍（以下API都为async，其sync API为async API名字后加Sync）：</strong></p>
-<p><strong>copy</strong>  </p>
-<p>复制文件<br>copy(src, dest, [options], callback)</p>
-<p>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">fs.copy(&apos;/tmp/myfile&apos;, &apos;/tmp/mynewfile&apos;, err =&gt; &#123;</div><div class="line">  if (err) return console.error(err)</div><div class="line"></div><div class="line">  console.log(&apos;success!&apos;)</div><div class="line">&#125;) // copies file</div><div class="line"></div><div class="line">fs.copy(&apos;/tmp/mydir&apos;, &apos;/tmp/mynewdir&apos;, err =&gt; &#123;</div><div class="line">  if (err) return console.error(err)</div><div class="line"></div><div class="line">  console.log(&apos;success!&apos;)</div><div class="line">&#125;) // cop</div></pre></td></tr></table></figure></p>
-<p><strong>emptyDir</strong></p>
-<p>emptyDir(dir, [callback])</p>
-<p>保证文件夹是空的，如果文件夹不为空，删除里面的文件。如果文件夹不存在，创建一个空文件夹。</p>
-<p>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">// assume this directory has a lot of files and folders</div><div class="line">fs.emptyDir(&apos;/tmp/some/dir&apos;, err =&gt; &#123;</div><div class="line">  if (err) return console.error(err)</div><div class="line"></div><div class="line">  console.log(&apos;success!&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><strong>ensureDir</strong></p>
-<p>ensureDir(dir, callback)</p>
-<p>保证文件夹存在，如果文件夹不存在就创建一个。</p>
-<p>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">const dir = &apos;/tmp/this/path/does/not/exist&apos;</div><div class="line">fs.ensureDir(dir, err =&gt; &#123;</div><div class="line">  console.log(err) // =&gt; null</div><div class="line">  // dir has now been created, including the directory it is to be placed in</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><strong>ensureLink</strong></p>
-<p>ensureLink(srcpath, dstpath, callback)</p>
-<p>保证文件路径存在，如果没有这个文件结构，就创建。</p>
-<p>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">const srcpath = &apos;/tmp/file.txt&apos;</div><div class="line">const dstpath = &apos;/tmp/this/path/does/not/exist/file.txt&apos;</div><div class="line">fs.ensureLink(srcpath, dstpath, err =&gt; &#123;</div><div class="line">  console.log(err) // =&gt; null</div><div class="line">  // link has now been created, including the directory it is to be placed in</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><strong>readJson</strong></p>
-<p>readJson(file, [options], callback)</p>
-<p>读一个json文件，并转换输出为一个对象。</p>
-<p>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">fs.readJson(&apos;./package.json&apos;, (err, packageObj) =&gt; &#123;</div><div class="line">  if (err) console.error(err)</div><div class="line">  </div><div class="line">  console.log(packageObj.version) // =&gt; 0.1.3</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p><strong>writeJson</strong></p>
-<p>writeJson(file, object, [options], callback)</p>
-<p>将一个对象，写入到json文件中。</p>
-<p>Example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const fs = require(&apos;fs-extra&apos;)</div><div class="line"></div><div class="line">fs.writeJson(&apos;./package.json&apos;, &#123;name: &apos;fs-extra&apos;&#125;, err =&gt; &#123;</div><div class="line">  if (err) return console.error(err)</div><div class="line"></div><div class="line">  console.log(&apos;success!&apos;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>完整的API<a href="https://github.com/jprichardson/node-fs-extra" target="_blank" rel="external">看这里</a></p>
-<h4 id="path"><a href="#path" class="headerlink" title="path"></a>path</h4><p>nodejs原生path模块，使用频率非常高的一个模块，这里还是再介绍一下。</p>
-<p>下面一一介绍其API：</p>
-<p><strong>path.basename(path[, ext])</strong></p>
-<p>返回path的最后一部分, 返回的结果可排除ext后缀字符串。</p>
-<p>Example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)</div><div class="line">// Returns: &apos;quux.html&apos;</div><div class="line"></div><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)</div><div class="line">// Returns: &apos;quux&apos;</div></pre></td></tr></table></figure></p>
-<p><strong>path.delimiter</strong>  </p>
-<p>提供平台具体的路径分隔符。</p>
-<ul>
-<li>; for Windows</li>
-<li>: for POSIX</li>
-</ul>
-<p><strong>path.dirname(path)</strong></p>
-<p>返回path所在的文件夹的名称。</p>
-<p>Example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">path.dirname(&apos;/foo/bar/baz/asdf/quux&apos;)</div><div class="line">// Returns: &apos;/foo/bar/baz/asdf&apos;</div><div class="line">path.dirname(&apos;/foo/bar/baz/asdf/quux/&apos;)</div><div class="line">// Returns: &apos;/foo/bar/baz/asdf&apos;</div><div class="line">path.dirname(&apos;/foo/bar/baz/asdf/quux.html&apos;)</div><div class="line">// Returns: &apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure></p>
-<p><strong>path.extname(path)</strong></p>
-<p>方法返回path的后缀名。在path的最后一部分，从最后一个.到path的结尾。如果path的最后一部分没有.或者basename以.开始，返回空string</p>
-<p>Example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">path.extname(&apos;index.html&apos;)</div><div class="line">// Returns: &apos;.html&apos;</div><div class="line"></div><div class="line">path.extname(&apos;index.coffee.md&apos;)</div><div class="line">// Returns: &apos;.md&apos;</div><div class="line"></div><div class="line">path.extname(&apos;index.&apos;)</div><div class="line">// Returns: &apos;.&apos;</div><div class="line"></div><div class="line">path.extname(&apos;index&apos;)</div><div class="line">// Returns: &apos;&apos;</div><div class="line"></div><div class="line">path.extname(&apos;.index&apos;)</div><div class="line">// Returns: &apos;&apos;</div></pre></td></tr></table></figure></p>
-<p><strong>path.isAbsolute(path)</strong></p>
-<p>确定path是否是一个绝对路径</p>
-<p>For example on POSIX:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">path.isAbsolute(&apos;/foo/bar&apos;) // true</div><div class="line">path.isAbsolute(&apos;/baz/..&apos;)  // true</div><div class="line">path.isAbsolute(&apos;qux/&apos;)     // false</div><div class="line">path.isAbsolute(&apos;.&apos;)        // false</div></pre></td></tr></table></figure></p>
-<p>On Windows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">path.isAbsolute(&apos;//server&apos;)    // true</div><div class="line">path.isAbsolute(&apos;\\\\server&apos;)  // true</div><div class="line">path.isAbsolute(&apos;C:/foo/..&apos;)   // true</div><div class="line">path.isAbsolute(&apos;C:\\foo\\..&apos;) // true</div><div class="line">path.isAbsolute(&apos;bar\\baz&apos;)    // false</div><div class="line">path.isAbsolute(&apos;bar/baz&apos;)     // false</div><div class="line">path.isAbsolute(&apos;.&apos;)           // false</div></pre></td></tr></table></figure></p>
-<p><strong>path.join([…paths])</strong></p>
-<p>把各个路径端，用平台的分隔符连接起来，然后再normalizes，关于normalizes请看后面的API。</p>
-<p>For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">path.join(&apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;)</div><div class="line">// Returns: &apos;/foo/bar/baz/asdf&apos;</div><div class="line"></div><div class="line">path.join(&apos;foo&apos;, &#123;&#125;, &apos;bar&apos;)</div><div class="line">// throws TypeError: Arguments to path.join must be strings</div></pre></td></tr></table></figure></p>
-<p><strong>path.normalize(path)</strong></p>
-<p>将不符合规范的路径格式化，简化开发人员中处理各种复杂的路径判断，path中的.或者..会resolve</p>
-<p>如果有多个连续路径分隔符，会被替换为一个路径分隔符。</p>
-<p>For example on POSIX:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;)</div><div class="line">// Returns: &apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure></p>
-<p>On Windows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">path.normalize(&apos;C:\\temp\\\\foo\\bar\\..\\&apos;);</div><div class="line">// Returns: &apos;C:\\temp\\foo\\&apos;</div></pre></td></tr></table></figure></p>
-<p><strong>path.resolve([…paths])</strong></p>
-<p>可以更简单的理解为不断的调用cd命令</p>
-<p>For example on POSIX:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;)</div><div class="line">// cd &apos;/foo/bar&apos;</div><div class="line">// cd &apos;./baz&apos;</div><div class="line">// Returns: &apos;/foo/bar/baz&apos;</div><div class="line"></div><div class="line">path.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;)</div><div class="line">// cd &apos;/foo/bar&apos;</div><div class="line">// cd &apos;/tmp/file/&apos;</div><div class="line">// Returns: &apos;/tmp/file&apos;</div><div class="line"></div><div class="line">path.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;)</div><div class="line">// if the current working directory is /home/myself/node,</div><div class="line">// this returns &apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;</div></pre></td></tr></table></figure></p>
-<p><strong>path.relative(from, to)</strong></p>
-<p>返回从from到to的相对路径</p>
-<p>For example on POSIX:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;)</div><div class="line">// Returns: &apos;../../impl/bbb&apos;</div></pre></td></tr></table></figure></p>
-<p>On Windows:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">path.relative(&apos;C:\\orandea\\test\\aaa&apos;, &apos;C:\\orandea\\impl\\bbb&apos;)</div><div class="line">// Returns: &apos;..\\..\\impl\\bbb&apos;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fangwentian.cn/posts/62753/" data-id="cj3skye2i0000ewv58yzv68tf" class="article-share-link" data-share="baidu" data-title="nodejs常用小工具介绍">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chalk/">chalk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/config/">config</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fs-extra/">fs-extra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opn/">opn</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
       
